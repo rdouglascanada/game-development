@@ -8,23 +8,15 @@
     <script type="text/javascript" src="Game.js" defer></script>
     <script defer>
       "use strict";
-      function main() {
+  		window.onload = function (){
         var canvas = document.getElementById("GameCanvas");
-        var game = Game.createInstance({
+        var game = new Game({
           canvas:canvas, timeout:1000 / 60,
           width:800, height:600,
           backgroundColour:"white"
         });
-
-        function mainLoop() {
-          game.update();
-          game.draw();
-          window.setTimeout(mainLoop, game.timeout);
-        }
-
-        window.setTimeout(mainLoop, game.timeout);
+        game.mainLoop();
       }
-  		document.addEventListener("DOMContentLoaded", main);
   	</script>
 	</body>
 </html>

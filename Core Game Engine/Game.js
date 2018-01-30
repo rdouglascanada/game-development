@@ -1,24 +1,34 @@
 "use strict";
-var Game = {
-	canvas:undefined,
-	width:undefined, height:undefined,
-	backgroundColour:undefined, timeout:undefined
+function Game(values) {
+	console.log("Game.new");
+	this.canvas = values.canvas;
+	this.width = values.width;
+	this.height = values.height;
+	this.backgroundColour = values.backgroundColour;
+	this.timeout = values.timeout;
 };
 
-Game.createInstance = function(values) {
-	console.log("Game.createInstance");
-	var instance = Object.create(Game);
-	Object.assign(instance, values);
-	return instance;
-};
-
-Game.draw = function() {
-	console.log("Game.draw");
-};
-
-Game.update = function() {
+Game.prototype.update = function() {
 	console.log("Game.update");
 	this.canvas.width = this.width;
 	this.canvas.height = this.height;
 	this.canvas.style.backgroundColor = this.backgroundColour;
+};
+
+Game.prototype.draw = function() {
+	console.log("Game.draw");
+};
+
+Game.prototype.mainLoopIteration = function() {
+	this.update();
+   this.draw();
+};
+
+Game.prototype.mainLoop = function() {
+	var game = this;
+	var iterationWithTimeout = function() {
+		game.mainLoopIteration();
+		window.setTimeout(iterationWithTimeout, game.timeout);
+	}
+	iterationWithTimeout();
 };
