@@ -1,6 +1,6 @@
 "use strict";
 function Rectangle(parameters) {
-	if (!parameters.width || !parameters.height) {throw "Cannot create Rectangle without width and height.";}
+	Element.call(this, parameters);
 	this.x = parameters.x;
 	this.y = parameters.y;
 	this.width = parameters.width;
@@ -11,9 +11,12 @@ function Rectangle(parameters) {
 	if (!parameters.colour) {this.colour = "black";}
 }
 
+Rectangle.prototype = new Element();
+
+Rectangle.prototype.constructor = Rectangle;
+
 Rectangle.prototype.draw = function(context) {
+	if (!this.width || !this.height) {throw "Cannot draw Rectangle without width and height.";}
 	context.fillStyle = this.colour;
 	context.fillRect(this.x, this.y, this.width, this.height);
 };
-
-Rectangle.prototype.update = function() {};
