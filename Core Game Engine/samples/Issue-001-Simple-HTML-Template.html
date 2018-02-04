@@ -6,6 +6,8 @@
 	<body style="background-color:gray;">
     <canvas id="GameCanvas"/>
     <script type="text/javascript" src="../Game.js" defer></script>
+    <script type="text/javascript" src="../Element.js" defer></script>
+    <script type="text/javascript" src="../ElementCollection.js" defer></script>
     <script defer>
       "use strict";
   		window.onload = function (){
@@ -13,7 +15,12 @@
         var game = new Game({
           canvas:canvas, timeout:1000 / 60,
           width:800, height:600,
-          backgroundColour:"white"
+          backgroundColour:"white",
+          stateElement: new ElementCollection(
+            {subElements :
+              []
+            }
+          )
         });
         game.mainLoop();
       }
