@@ -1,17 +1,11 @@
 "use strict";
 function Rectangle(parameters) {
-	Element.call(this, parameters);
-	this.x = parameters.x;
-	this.y = parameters.y;
-	this.width = parameters.width;
-	this.height = parameters.height;
+	RectElement.call(this, parameters);
 	this.colour = parameters.colour;
-	if (!parameters.x) {this.x = 0;}
-	if (!parameters.y) {this.y = 0;}
 	if (!parameters.colour) {this.colour = "black";}
 }
 
-Rectangle.prototype = new Element();
+Rectangle.prototype = new RectElement({});
 
 Rectangle.prototype.constructor = Rectangle;
 
