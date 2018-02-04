@@ -1,12 +1,10 @@
 "use strict";
 var RectElement = function(parameters) {
 	Element.call(this, parameters);
-	this.x = parameters.x;
-	this.y = parameters.y;
+	this.x = ifValue(parameters.x, 0);
+	this.y = ifValue(parameters.y, 0);
 	this.width = parameters.width;
 	this.height = parameters.height;
-	if (!parameters.x) {this.x = 0;}
-	if (!parameters.y) {this.y = 0;}
 }
 
 RectElement.prototype = new Element({});

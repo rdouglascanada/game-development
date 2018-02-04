@@ -1,8 +1,7 @@
 "use strict";
 var Rectangle = function(parameters) {
 	RectElement.call(this, parameters);
-	this.colour = parameters.colour;
-	if (!parameters.colour) {this.colour = "black";}
+	this.colour = ifValue(parameters.colour, "black");
 }
 
 Rectangle.prototype = new RectElement({});

@@ -2,8 +2,7 @@
 var Polygon = function(parameters) {
 	RectElement.call(this, parameters);
 	this.points = parameters.points;
-	this.colour = parameters.colour;
-	if (!parameters.colour) {this.colour = "black";}
+	this.colour = ifValue(parameters.colour, "black");
 }
 
 Polygon.prototype = new RectElement({});
