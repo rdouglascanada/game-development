@@ -1,5 +1,5 @@
 "use strict";
-function Game(parameters) {
+var Game = function(parameters) {
 	this.canvas = parameters.canvas;
 	this.width = parameters.width;
 	this.height = parameters.height;

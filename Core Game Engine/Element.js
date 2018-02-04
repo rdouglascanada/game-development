@@ -1,5 +1,5 @@
 "use strict";
-function Element(parameters) {};
+var Element = function(parameters) {};
 
 Element.prototype.draw = function(context) {};
 

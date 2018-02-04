@@ -1,5 +1,5 @@
 "use strict";
-function RectElement(parameters) {
+var RectElement = function(parameters) {
 	Element.call(this, parameters);
 	this.x = parameters.x;
 	this.y = parameters.y;

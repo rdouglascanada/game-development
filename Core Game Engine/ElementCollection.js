@@ -1,5 +1,5 @@
 "use strict";
-function ElementCollection(parameters) {
+var ElementCollection = function(parameters) {
 	Element.call(this, parameters);
 	this.subElements = parameters.subElements;
 }
