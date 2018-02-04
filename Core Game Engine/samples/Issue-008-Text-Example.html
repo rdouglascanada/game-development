@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Text Example</title>
+	</head>
+	<body style="background-color:gray;">
+    <canvas id="GameCanvas"/>
+    <script type="text/javascript" src="../Utilities.js" defer></script>
+    <script type="text/javascript" src="../Game.js" defer></script>
+    <script type="text/javascript" src="../Element.js" defer></script>
+    <script type="text/javascript" src="../ElementCollection.js" defer></script>
+    <script type="text/javascript" src="../RectElement.js" defer></script>
+    <script type="text/javascript" src="../TextElement.js" defer></script>
+    <script defer>
+      "use strict";
+  		window.onload = function (){
+        var canvas = document.getElementById("GameCanvas");
+        var game = new Game({
+          canvas:canvas, timeout:1000 / 60,
+          width:800, height:600,
+          backgroundColour:"white",
+          stateElement: new ElementCollection(
+            {subElements :
+              [
+                new TextElement({width:800, height:600, text:"Left and Top Aligned"}),
+                new TextElement({width:800, height:600, text:"Centre and Middle Aligned",
+                                horizontalAlign:TextElement.HORIZONTAL_ALIGN_CENTRE,
+                                verticalAlign:TextElement.VERTICAL_ALIGN_MIDDLE}),
+                new TextElement({width:800, height:600, text:"Right and Bottom Aligned",
+                                horizontalAlign:TextElement.HORIZONTAL_ALIGN_RIGHT,
+                                verticalAlign:TextElement.VERTICAL_ALIGN_BOTTOM}),
+                new TextElement({x:200, y:200, width:50, height:50, text:"Different font and colour",
+                                font:"30px serif", colour:"blue"}),
+              ]
+            }
+          ) 
+        });
+        game.mainLoop();
+      }
+  	</script>
+	</body>
+</html>
