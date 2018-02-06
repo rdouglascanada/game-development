@@ -9,11 +9,14 @@ ElementCollection.prototype = new Element();
 ElementCollection.prototype.constructor = ElementCollection;
 
 ElementCollection.prototype.draw = function(context) {
-	if (!this.subElements) {throw "Cannot draw ElementCollection without sub elements.";}
 	for (var element of this.subElements) {element.draw(context);};
 };
 
 ElementCollection.prototype.update = function() {
-	if (!this.subElements) {throw "Cannot update ElementCollection without sub elements.";}
 	for (var element of this.subElements) {element.update();};
+};
+
+ElementCollection.prototype.validate = function() {
+	validateIsSpecified(this.subElements, this, "sub elements");
+	for (var element of this.subElements) {element.validate();};
 };
