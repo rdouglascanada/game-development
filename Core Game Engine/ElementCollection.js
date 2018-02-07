@@ -9,14 +9,14 @@ ElementCollection.prototype = new Element({});
 ElementCollection.prototype.constructor = ElementCollection;
 
 ElementCollection.prototype.draw = function(context) {
-	for (var element of this.subElements) {element.draw(context);};
+	for (var i = 0; i < this.subElements.length; i++) {this.subElements[i].draw(context);};
 };
 
 ElementCollection.prototype.update = function() {
-	for (var element of this.subElements) {element.update();};
+	for (var i = 0; i < this.subElements.length; i++) {this.subElements[i].update();};
 };
 
 ElementCollection.prototype.validate = function() {
 	validateIsSpecified(this.subElements, this, "sub elements");
-	for (var element of this.subElements) {element.validate();};
+	for (var i = 0; i < this.subElements.length; i++) {this.subElements[i].validate();};
 };
