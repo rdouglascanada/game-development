@@ -4,7 +4,7 @@ var ElementCollection = function(parameters) {
 	this.subElements = parameters.subElements;
 }
 
-ElementCollection.prototype = new Element();
+ElementCollection.prototype = new Element({});
 
 ElementCollection.prototype.constructor = ElementCollection;
 
