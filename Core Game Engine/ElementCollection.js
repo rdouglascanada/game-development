@@ -15,7 +15,3 @@ ElementCollection.prototype.draw = function(context) {
 ElementCollection.prototype.update = function() {
 	for (var i = 0; i < this.subElements.length; i++) {this.subElements[i].update();};
 };
-
-ElementCollection.prototype.update = function() {
-	for (var element of this.subElements) {element.update();};
-};
