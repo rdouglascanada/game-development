@@ -16,7 +16,6 @@ ElementCollection.prototype.update = function() {
 	for (var i = 0; i < this.subElements.length; i++) {this.subElements[i].update();};
 };
 
-ElementCollection.prototype.validate = function() {
-	validateIsSpecified(this.subElements, this, "sub elements");
-	for (var i = 0; i < this.subElements.length; i++) {this.subElements[i].validate();};
+ElementCollection.prototype.update = function() {
+	for (var element of this.subElements) {element.update();};
 };

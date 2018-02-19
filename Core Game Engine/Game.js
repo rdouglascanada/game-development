@@ -3,9 +3,8 @@ var Game = function(parameters) {
 	this.canvas = parameters.canvas;
 	this.width = parameters.width;
 	this.height = parameters.height;
-	this.backgroundColour = ifSpecified(parameters.backgroundColour, "black");
+	this.backgroundColour = parameters.backgroundColour;
 	this.timeout = parameters.timeout;
-	this.validationMode = ifSpecified(parameters.validationMode, true);
 	this.stateElement = parameters.stateElement;
 };
 
@@ -23,19 +22,8 @@ Game.prototype.draw = function() {
 	}
 };
 
-Game.prototype.validate = function() {
-	validateIsSpecified(this.canvas, this, "canvas");
-	validateIsNonnegativeInt(this.width, this, "width");
-	validateIsNonnegativeInt(this.height, this, "height");
-	validateIsNonnegative(this.timeout, this, "timeout");
-	validateIsString(this.backgroundColour, this, "background colour");
-	if (this.stateElement) {this.stateElement.validate();}
-}
-
 Game.prototype.mainLoopIteration = function() {
-	if (this.validationMode) {this.validate();}
 	this.update();
-	if (this.validationMode) {this.validate();}
    this.draw();
 };
 
